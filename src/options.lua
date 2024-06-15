@@ -4,6 +4,7 @@ local defaults = {
     profile = {
         debugEnabled = false,
         debugMessageDestination = "CHAT",
+        removeOldDuplicates = true,
     }
 }
 
@@ -37,6 +38,13 @@ function LFGAT:GetOptions()
                 },
                 get = function(info) return self.db.profile.debugMessageDestination end,
                 set = function(info, value) self.db.profile.debugMessageDestination = value end,
+            },
+            removeOldDuplicates = {
+                name = "Remove Old Duplicates",
+                desc = "Remove old duplicates of the same message",
+                type = "toggle",
+                get = function(info) return LFGAT.db.profile.removeOldDuplicates end,
+                set = function(info, value) LFGAT.db.profile.removeOldDuplicates = value end,
             },
         },
     }

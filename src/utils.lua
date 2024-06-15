@@ -62,3 +62,49 @@ function LFGAT.LookupKeyword(message)
     end
     return nil
 end
+
+function LFGAT:FormatTimeSince(time)
+    local seconds = time
+    local minutes = math.floor(seconds / 60)
+    seconds = seconds % 60
+    local hours = math.floor(minutes / 60)
+    minutes = minutes % 60
+    local days = math.floor(hours / 24)
+    hours = hours % 24
+
+    local timeString = ""
+    if days > 0 then
+        timeString = timeString .. days .. "d "
+    end
+    if hours > 0 then
+        timeString = timeString .. hours .. "h "
+    end
+    if minutes > 0 then
+        timeString = timeString .. minutes .. "m "
+    end
+    if seconds > 0 then
+        timeString = timeString .. seconds .. "s"
+    end
+
+    return timeString
+end
+
+function LFGAT:TableToString(tbl)
+    local function serialize(tbl)
+        local result = {}
+        for k, v in pairs(tbl) do
+            local key = type(k) == "string" and string.format("%q", k) or k
+            local value = type(v)
+            if value == "table" then
+                table.insert(result, string.format("[%s]=%s", key, serialize(v)))
+            elseif value == "string" then
+                table.insert(result, string.format("[%s]=%q", key, v))
+            else
+                table.insert(result, string.format("[%s]=%s", key, tostring(v)))
+            end
+        end
+        return "{" .. table.concat(result, ",") .. "}"
+    end
+
+    return serialize(tbl)
+end

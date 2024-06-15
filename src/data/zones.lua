@@ -34,11 +34,19 @@ LFGAT.zones = {
     ET = { 435, 436 },   -- End Time
     WOE = { 437, 438 },  -- Well of Eternity
     HOT = { 439, 440 },  -- Hour of Twilight
-    DS = { 447, 448 }    -- Dragon Soul
+    DS = { 447, 448 },   -- Dragon Soul
+
+    -- Activities (not zones)
+    COCK = { -1 } -- CoC in Twilight Highlands
 }
 
 
+-- NOTE: Custom activities are assigned negitive numbers, makes it easy to differentiate
 LFGAT.zoneIds = {
+    -- Activities
+    { id = -1,  name = "Crucible of Carnage (COCK)" },
+
+    -- Zones/Dungeons/Raids
     { id = 1,   name = "Wailing Caverns" },
     { id = 2,   name = "Scholomance" },
     { id = 4,   name = "Ragefire Chasm" },

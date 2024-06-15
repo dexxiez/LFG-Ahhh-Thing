@@ -9,6 +9,10 @@ function LFGAT:CHAT_MSG_CHANNEL(_, message, _, _, _, sender, _, channelId)
 	if channelId == 2 or channelId == 26 then
 		local category, key = LFGAT.LookupKeyword(message)
 		if category then
+			if self.db.profile.removeOldDuplicates then
+				self:FindAndRemove(sender, message)
+			end
+
 			self:AddItem(category, sender, message)
 
 			self:Debug("Category: " ..
