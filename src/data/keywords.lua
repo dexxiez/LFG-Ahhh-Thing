@@ -10,11 +10,11 @@ LFGAT.keywords = {
         "w2b",
         "w2t",
     },
-    roles = {
-        "tank",
-        "healer",
-        "dps",
-        "damage"
+    groups = {
+        "lf",
+        "lfg",
+        "lfm",
+        "lf*m" -- TODO: Add support for wildcard characters
     },
     zones = {
         BH = { "bh", "bh10", "bh25" },

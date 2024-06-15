@@ -1,6 +1,19 @@
 LFGAT = LibStub("AceAddon-3.0"):GetAddon("LFGAT")
 
 
+function LFGAT:Debug(message)
+    if self.db.profile.debugEnabled then
+        local destination = self.db.profile.debugMessageDestination
+        if destination == "CHAT" then
+            self:Print(message)
+        elseif destination == "GUILD" then
+            SendChatMessage(message, "GUILD")
+        elseif destination == "IGGY" then
+            SendChatMessage(message, "WHISPER", nil, "Iggyorc")
+        end
+    end
+end
+
 function LFGAT:GetChannels()
     local channels = {}
     local chanList = { GetChannelList() }
