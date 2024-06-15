@@ -1,0 +1,14 @@
+## Interface: 40400
+## Title: LFG Uhhh Thing
+## Author: Jun Ceena & Dexxiez mah ballz
+## Version: 0.0.0a
+
+src/main.lua
+src/events/chat.lua
+src/utils.lua
+
+src/data/keywords.lua
+src/data/zones.lua
+
+embeds.xml
+
