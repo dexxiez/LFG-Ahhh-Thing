@@ -1,6 +1,9 @@
+--[[
+-- File: main.lua
+--  Summary: The main file for LFGAT. This file contains the initialization code for the addon. I consider this in my head to be the "entry point" for the addon.
+--]]
+
 LFGAT = LibStub("AceAddon-3.0"):NewAddon("LFGAT", "AceConsole-3.0", "AceEvent-3.0")
-
-
 
 function LFGAT:OnInitialize()
 	self:RegisterEvent("PLAYER_ENTERING_WORLD")
